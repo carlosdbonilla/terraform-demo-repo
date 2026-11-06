@@ -54,7 +54,7 @@ locals {
 
 # The same request goes to both approved modules (written by the platform team).
 module "storage" {
-  source  = "app.terraform.io/carlos-hashicorp-demo/approved-bucket/aws" # AWS
+  source  = "app.terraform.io/carlos-hashicorp-demo/modules/aws" #AWS
   version = "1.0.0"
 
   team        = local.request.team
@@ -66,8 +66,9 @@ module "storage" {
 }
 
 module "code_repo" {
-  source  = "app.terraform.io/carlos-hashicorp-demo/approved-repo/github" # GitHub
-  version = "1.0.0" 
+  source  = "app.terraform.io/carlos-hashicorp-demo/modules/github" #GitHub
+  version = "1.0.0"
+  
 
   team        = local.request.team
   company     = local.request.company
